@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sam Fansler, MS, BA",
+    "section": "",
+    "text": "Sam is a current Biostatistics Ph.D. student at the Johns Hopkins Bloomberg School of Public Health. His research interests center around wearable devices, machine learning, and improving quality of life for older adults. When not doing statistics, Sam enjoys playing cello and piano, playing and watching sports, and watching movies."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "MS in Biostatistics, University of Michigan, 2021\nBA in Statistics and Music, Butler University, 2017"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "",
+    "text": "MS in Biostatistics, University of Michigan, 2021\nBA in Statistics and Music, Butler University, 2017"
+  },
+  {
+    "objectID": "about.html#biography",
+    "href": "about.html#biography",
+    "title": "About",
+    "section": "Biography",
+    "text": "Biography\nI attended my undergraduate at Butler University with a double major in Statistics and Music. While at Butler, I combined my passions for music and statistics by completing a research project in the Indianapolis community. For this project, I worked with the Psychology department to implement a music intervention for dementia patients at a local nursing home. The goal of the project was to see if listening to a personalized playlist of music for one hour would improve older adults’ dementia-caused sundowning symptoms, both short-term (same day) and long term (across 3 months). This experience instilled a passion for research in public health, especially among the older adult population.\nAfter graduating from Butler, to further pursue my newfound passion, I pursued my Master’s degree in Biostatistics from the University of Michigan. During my Master’s, I continued my research by collaborating with the Epidemiology department to implement machine learning techniques to predict cardiovascular disease mortality using environmental metal mixtures. At Michigan, I learned the technical skills required to be a practicing Biostatistician and developed a solid theoretical foundation to continue my education.\nI am currently pursuing my Ph.D. in the Biostatistics department at the Johns Hopkins School of Public Health. At Hopkins, I hope to develop and improve methodology for measuring biomarkers and physical activity using wearable devices and imaging technology, especially for older adults.\nAfter completing my education, I hope to lead research in the field of wearable devices and mobile health, developing new rigorous statistical methodology and paving the way for application of cutting-edge technology to improve public health outcomes for older adults as well as the general population."
+  },
+  {
+    "objectID": "Example_analysis.html",
+    "href": "Example_analysis.html",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "",
+    "text": "(“How Alcohol Impacts the Brain  Northwestern Medicine” n.d.)\nThe United States population is aging, so it is imperative to understand how previously shown research findings are generalized to the older adult population. Previous research has shown that there is an association between alcohol and cognitive decline among older adults. (Mende 2019) The goal of this study is to determine whether this association differs across sex in this population. The intended audience for this study is healthcare providers for older adults, to better inform them of the relationship between alcohol, cognition, and sex so they can give the best personalized care possible."
+  },
+  {
+    "objectID": "Example_analysis.html#introduction",
+    "href": "Example_analysis.html#introduction",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "",
+    "text": "(“How Alcohol Impacts the Brain  Northwestern Medicine” n.d.)\nThe United States population is aging, so it is imperative to understand how previously shown research findings are generalized to the older adult population. Previous research has shown that there is an association between alcohol and cognitive decline among older adults. (Mende 2019) The goal of this study is to determine whether this association differs across sex in this population. The intended audience for this study is healthcare providers for older adults, to better inform them of the relationship between alcohol, cognition, and sex so they can give the best personalized care possible."
+  },
+  {
+    "objectID": "Example_analysis.html#methods",
+    "href": "Example_analysis.html#methods",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Methods",
+    "text": "Methods\nThe study population in this study included adults aged 65+ in the National Health and Nutrition Examination Survey (NHANES). NHANES is a cross-sectional survey taken in cycles every two years. It uses weighted examination and questionnaire data to obtain a representative comprehensive overview of the U.S. population. (“Centers for Disease Control and Prevention (CDC), National Center for Health Statistics (NCHS). National Health and Nutrition Examination Survey Questionnaire. Hyattsville, MD: National Center for Health Statistics; 2022.” n.d.) This study used the 2013-2014 cycle of NHANES because that was the most recent cycle in which both cognitive functioning and alcohol use were measured. The outcome variable used was the Digit Symbol Substitution Test (DSST) score, which is a cognitive test that scores participants on a scale of 0 (worst) to 133 (best). Alcohol use was self-reported as “Average number of alcohol drinks per day in the past 12 months”.\nIn the first model, I performed a multiple linear regression of cognition on depression adjusting for demographic variables including age, race, sex, and education to see if my findings matched those previously found. My second model included an interaction term for depression and sex, to see if the effect of depression on cognition differs between sexes.\nThe data for the cognition and depression variables can be found here.\nThe data for the demographic variables can be found here."
+  },
+  {
+    "objectID": "Example_analysis.html#read-in-nhanes-data",
+    "href": "Example_analysis.html#read-in-nhanes-data",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Read in NHANES data",
+    "text": "Read in NHANES data\n\nlibrary(haven)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nsetwd(\"C:\\\\Users\\\\samfa\\\\OneDrive - Johns Hopkins\\\\Year 1 Coursework\\\\Term 2\\\\Statistical Paradigms and Workflows\\\\biostat777-intro-sam-fansler\\\\sfansler.github.io\")\n\ncog = read_xpt(\"CFQ_H.xpt\")\nalc = read_xpt(\"ALQ_H.xpt\")\ndemo = read_xpt(\"DEMO_H.xpt\")"
+  },
+  {
+    "objectID": "Example_analysis.html#data-pre-processing",
+    "href": "Example_analysis.html#data-pre-processing",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Data Pre-Processing",
+    "text": "Data Pre-Processing\n\n#Combining data into single data frame\nmerged = full_join(cog, full_join(demo, alc, by = \"SEQN\"), by = \"SEQN\")\n\n\ndata = merged %&gt;%\n  select(CFDDS, ALQ130, RIAGENDR, RIDAGEYR, RIDRETH1) %&gt;% #Only including cognition, depression, and required demographics\n  filter(RIDAGEYR &gt;= 65) %&gt;% #Only including older adults (age 65+)\n  filter(!is.na(ALQ130), ALQ130 != 999) %&gt;% #Deleting missing observations for alcohol use\n  filter(!is.na(CFDDS)) %&gt;% #Deleting missing observations for cognition\n  mutate(RIAGENDR = ifelse(RIAGENDR == 1, \"male\", \"female\"),\n         RIDRETH1 = ifelse(RIDRETH1 == 1, \"Mexican-American\", ifelse(RIDRETH1 == 2, \"Other_Hispanic\", ifelse(RIDRETH1 == 3, \"Non-Hispanic_White\", ifelse(RIDRETH1 == 4, \"Non-Hispanic_Black\", \"Other_Race\"))))) %&gt;%\n  rename(\"Alcohol_use\" = ALQ130, \"DSST\" = CFDDS, \"Sex\" = RIAGENDR, \"RaceEthnicity\" = RIDRETH1, \"Age\" = RIDAGEYR)\n\n\n\n\n\n\n\nComplete-case analysis\n\n\n\nBecause there was a lot of missing data, this complete-case analysis is likely introducing lots of bias into my findings. However, it is difficult to check the MAR assumption for imputation in this data, I will use the complete-case analysis to get preliminary findings."
+  },
+  {
+    "objectID": "Example_analysis.html#exporatory-data-analysis",
+    "href": "Example_analysis.html#exporatory-data-analysis",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Exporatory Data Analysis",
+    "text": "Exporatory Data Analysis\n\nggplot(data = data, aes(x = Alcohol_use)) + geom_histogram() + labs(title = \"Histogram of Alcohol use\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nggplot(data = data, aes(x = DSST)) + geom_histogram() + labs(title = \"Histogram of DSST score\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nggplot(data = data, aes(x = DSST, group = Sex, fill = Sex)) + geom_boxplot() + labs(title = \"Boxplot of DSST scores by Sex\")\n\n\n\np = ggplot(data = data, aes(x = Alcohol_use, y = DSST)) + geom_point()\n\np + facet_wrap(vars(RaceEthnicity)) + labs(title = \"DSST vs Alcohol Use by Race/Ethnicity\")\n\n\n\n\nDSST score, our outcome, looks normally distributed. Alcohol use is skewed right, so the majority of the older adults in this data are light/moderate alcohol drinkers with more than half of the sample having an average of less than 2.5 alcohol beverages per day.\nFinally, it looks like females tend to have higher DSST scores than males.\nNow let’s look at the relationship between alcohol use and cognition.\n\nggplot(data = data, aes(x = Alcohol_use, y = DSST)) + geom_point() + labs(title = \"DSST score vs Alcohol Use\")\n\n\n\n\nThere seems to be a general negative association between average number of alcoholic drinks/day and DSST score. Let’s see if this trend looks different across sexes.\n\nggplot(data = data, aes(x = Alcohol_use, y = DSST, color = as.factor(Sex))) + geom_point() + labs(title = \"DSST score vs Alcohol use by Sex\")\n\n\n\n\nIt looks like the participants with higher alcohol/day consumption tend to be male. It also looks like alcohol negatively slightly affects the cognition of males more than that of females."
+  },
+  {
+    "objectID": "Example_analysis.html#linear-regression",
+    "href": "Example_analysis.html#linear-regression",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Linear regression",
+    "text": "Linear regression\nFirst let’s fit the model without interaction term. ::: {.column-margin} The model can be represented by:\n\\[DSST_i = \\beta_0 + \\beta_1AlcoholUse_i + \\beta_2Sex_i + \\beta_3Age_i + \\beta_4MexicanAmerican_i + \\beta_5OtherHispanic_i + \\beta_6NonHispanicBlack_i + \\beta_7OtherRace_i +  \\epsilon_i\\] where:\n\\[Alc_i\\] is the self-reported average number of alcohol drinks/day in the past 12 months \\[Sex_i\\] is a factor corresponding to 1 = Male, 2 = Female \\[Age_i\\] is the participant’s age in years\nThe race variables are indicators of whether the participant was that race (1 if that race, 0 otherwise)\n\n\n\n\n\n\nNote\n\n\n\nWe are assuming:\\[\\epsilon_i \\sim \\text{N}(0, \\sigma^2)\\]\n\n\n:::\n\n#Relevel race variable so that non-hispanic white is the reference group\ndata$RaceEthnicity = factor(data$RaceEthnicity, levels = c(\"Non-Hispanic_white\",\"Mexican-American\",\"Other_Hispanic\",\"Non-Hispanic_Black\",\"Other_Race\"))\n\n#Relevel sex variable so that males are the reference group\ndata$Sex = factor(data$Sex, levels = c(\"female\", \"male\"))\n\n\nmod_no_int = lm(DSST ~ Alcohol_use + as.factor(Sex) + Age + as.factor(RaceEthnicity), data = data)\nsummary(mod_no_int)\n\n\nCall:\nlm(formula = DSST ~ Alcohol_use + as.factor(Sex) + Age + as.factor(RaceEthnicity), \n    data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-36.540  -8.736  -0.319   8.822  36.261 \n\nCoefficients:\n                                           Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)                                 97.3133    15.2225   6.393 8.98e-10\nAlcohol_use                                 -2.1899     0.5861  -3.736 0.000235\nas.factor(Sex)male                          -3.0401     2.0304  -1.497 0.135694\nAge                                         -0.7486     0.2148  -3.485 0.000590\nas.factor(RaceEthnicity)Other_Hispanic      -1.6761     3.0925  -0.542 0.588346\nas.factor(RaceEthnicity)Non-Hispanic_Black   0.7737     2.5816   0.300 0.764682\nas.factor(RaceEthnicity)Other_Race          12.1960     3.0582   3.988 8.96e-05\n                                              \n(Intercept)                                ***\nAlcohol_use                                ***\nas.factor(Sex)male                            \nAge                                        ***\nas.factor(RaceEthnicity)Other_Hispanic        \nas.factor(RaceEthnicity)Non-Hispanic_Black    \nas.factor(RaceEthnicity)Other_Race         ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 14.73 on 230 degrees of freedom\n  (357 observations deleted due to missingness)\nMultiple R-squared:  0.2026,    Adjusted R-squared:  0.1817 \nF-statistic: 9.737 on 6 and 230 DF,  p-value: 1.479e-09\n\nmod_int = lm(DSST ~ Alcohol_use*as.factor(Sex) + Age + as.factor(RaceEthnicity), data = data)\nsummary(mod_int)\n\n\nCall:\nlm(formula = DSST ~ Alcohol_use * as.factor(Sex) + Age + as.factor(RaceEthnicity), \n    data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-36.761  -8.499  -0.101   8.712  35.989 \n\nCoefficients:\n                                           Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)                                 98.5270    15.7153   6.269 1.78e-09\nAlcohol_use                                 -2.6358     1.5100  -1.746 0.082227\nas.factor(Sex)male                          -3.9382     3.4629  -1.137 0.256618\nAge                                         -0.7545     0.2160  -3.493 0.000574\nas.factor(RaceEthnicity)Other_Hispanic      -1.8257     3.1335  -0.583 0.560701\nas.factor(RaceEthnicity)Non-Hispanic_Black   0.6702     2.6067   0.257 0.797340\nas.factor(RaceEthnicity)Other_Race          12.0936     3.0808   3.926 0.000115\nAlcohol_use:as.factor(Sex)male               0.5196     1.6213   0.321 0.748881\n                                              \n(Intercept)                                ***\nAlcohol_use                                .  \nas.factor(Sex)male                            \nAge                                        ***\nas.factor(RaceEthnicity)Other_Hispanic        \nas.factor(RaceEthnicity)Non-Hispanic_Black    \nas.factor(RaceEthnicity)Other_Race         ***\nAlcohol_use:as.factor(Sex)male                \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 14.76 on 229 degrees of freedom\n  (357 observations deleted due to missingness)\nMultiple R-squared:  0.2029,    Adjusted R-squared:  0.1785 \nF-statistic: 8.328 on 7 and 229 DF,  p-value: 4.678e-09\n\n\nIn the model without interaction, alcohol had a significant negative effect on cognition. Specifically, an increase in an average of 1 alcohol drink/day was significantly associated with an estimated average decrease in DSST score by 1.82 points (p &lt; 0.001), adjusting for age, sex, and race.\nIn the model with an interaction between alcohol and sex, there was no significant interaction between alcohol consumption and sex, meaning the effect of alcohol use on cognition is not modified by sex, adjusting for age and race."
+  },
+  {
+    "objectID": "Example_analysis.html#conclusionsummary",
+    "href": "Example_analysis.html#conclusionsummary",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Conclusion/Summary",
+    "text": "Conclusion/Summary\nIn a complete-case analysis of 594 older adults from NHANES cycle 2001-2002, I found that there is a significant effect of alcohol-use on cognition. However, I found that this association is not modified by sex. These results may be biased due to the deletion of missing observations, since it is possible that those with missing data for alcohol-use were likely to drink more than those with observed values. It is also possible that those with missing DSST scores were likely to do worse on the DSST, or have higher alcohol consumption than those with observed values. Finally, the survey weighting for NHANES was not used in this analysis for simplicity purposes of the analysis, as well as the consequence of a complete-case analysis. These results are meant to serve as preliminary findings for the lack of effect modification between sex and alcohol use to predict cognition among older adults."
+  },
+  {
+    "objectID": "Example_analysis.html#functions-used",
+    "href": "Example_analysis.html#functions-used",
+    "title": "Sex Differences in the Effect of Alcohol on Cognition among Older Adults",
+    "section": "Functions used",
+    "text": "Functions used\ndplyr::select\ndplyr::merge\ndplyr::filter\ndplyr::full_join\ndplyr::mutate\nggplot::geom_point\nggplot::geom_histogram\nggplot::geom_boxplot\nggplot::facet_wrap"
+  }
+]
