@@ -1,7 +1,9 @@
 ---
-title: "sfansler.github.io"
+title: "Sam Fansler, MS, BA"
+toc: false
+
 ---
 
-This is a Quarto website.
+Sam is a current Biostatistics Ph.D. student at the Johns Hopkins Bloomberg School of Public Health. His research interests center around wearable devices, machine learning, and improving quality of life for older adults. When not doing statistics, Sam enjoys playing cello and piano, playing and watching sports, and watching movies.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+![](cello.jpg)
